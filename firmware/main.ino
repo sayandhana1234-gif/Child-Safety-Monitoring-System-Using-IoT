@@ -2,11 +2,9 @@
 #include <DHT.h>
 
 #if defined(ESP8266)
-  #include <ESP8266WiFi.h>
   #define MQ_PIN A0
   #define DHT_PIN D5
 #elif defined(ESP32)
-  #include <WiFi.h>
   #define MQ_PIN 34
   #define DHT_PIN 4
 #else
@@ -17,6 +15,7 @@
 
 DHT dht(DHT_PIN, DHT_TYPE);
 
+// Provisional demonstration thresholds only
 const int GAS_THRESHOLD = 500;
 const float TEMP_THRESHOLD = 40.0;
 
@@ -35,7 +34,7 @@ void loop() {
 
   Serial.println("\n--- Sensor Readings ---");
 
-  Serial.print("Gas reading: ");
+  Serial.print("Gas sensor raw reading: ");
   Serial.println(gasValue);
 
   if (!isnan(temperature) && !isnan(humidity)) {
@@ -51,7 +50,7 @@ void loop() {
   }
 
   if (gasValue > GAS_THRESHOLD) {
-    Serial.println("WARNING: Gas threshold exceeded!");
+    Serial.println("WARNING: Gas reading threshold exceeded!");
   }
 
   if (!isnan(temperature) && temperature > TEMP_THRESHOLD) {
