@@ -9,6 +9,7 @@ The Child Safety Monitoring System Using IoT is a group academic project focused
 The system uses sensors to monitor parameters such as oxygen levels, carbon monoxide concentration, temperature and humidity. An ESP32 microcontroller collects sensor readings and transmits the information for monitoring.
 
 The system helps identify potentially unsafe environmental conditions and generates alerts when monitored values exceed predefined safety thresholds.
+![Child Safety Monitoring System Prototype](child-safety-prototype.jpeg)
 
 ## Key Features
 
